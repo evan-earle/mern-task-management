@@ -5,6 +5,10 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import allRoutes from "./routes/index.js";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 dotenv.config({ path: "./config/.env" });
 
 const PORT = process.env.PORT || 8000;
@@ -36,6 +40,12 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
 
 app.listen(PORT, () => {
   connectDB();
