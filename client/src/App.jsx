@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import React from "react";
 import Home from "./pages/Home";
 import EditProfile from "./pages/EditProfile";
 import Auth from "./pages/Auth";
