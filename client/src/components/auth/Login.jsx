@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Authform.module.scss";
+import classes from "./AuthForm.module.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
